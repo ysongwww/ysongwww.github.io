@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>基础任务完成情况</title>
+      <link href="/2025/11/03/%E5%9F%BA%E7%A1%80%E4%BB%BB%E5%8A%A1%E5%AE%8C%E6%88%90%E6%83%85%E5%86%B5/"/>
+      <url>/2025/11/03/%E5%9F%BA%E7%A1%80%E4%BB%BB%E5%8A%A1%E5%AE%8C%E6%88%90%E6%83%85%E5%86%B5/</url>
+      
+        <content type="html"><![CDATA[<p>任务二：搞了个VPN<br>任务三：完成<br>任务四：用VMWare安装完成<br>任务五：1.配置好了python环境，C环境出了点问题还没配置好。<br>2.远程连接了虚拟机<br>3.没找到喜欢的风格<br>4.安装好了libnum运行结果为<strong>b’welcome_to_fafu!!!’</strong></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>博客搭建过程</title>
+      <link href="/2025/10/12/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E9%81%8E%E7%A8%8B/"/>
+      <url>/2025/10/12/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E9%81%8E%E7%A8%8B/</url>
+      
+        <content type="html"><![CDATA[<h3 id="基础软件-环境准备"><a href="#基础软件-环境准备" class="headerlink" title="基础软件&amp;环境准备"></a>基础软件&amp;环境准备</h3><ul><li>First ，<strong>安装git</strong><blockquote><p>下载太慢了，于是下载了steam++（Watt Toolkit），好像没用，但可以加速GitHub</p></blockquote></li><li>Second ，<strong>注册GitHub账号，与git绑定</strong></li></ul><p><code>git config --global user.name&quot;ysongwww&quot;</code></p><p><code>git config --global user.email 2264824769@qq.com</code></p><ul><li>Third，<strong>安装node.js配置环境变量</strong><blockquote><p>nodejs安装包被误认为是压缩包，经查找，发现是快压助手太强大了，遂删除，成功下载node.js</p></blockquote></li></ul><p>检查是否安装成功:</p><p><code>git version</code></p><p><code>node -v</code></p><p><code>npm -v</code></p><ul><li>Last，<strong>下载Vscode</strong><blockquote><p>便于布置主题和写博客，之前用WPS和记事本好像有问题</p></blockquote></li></ul><h3 id="Hexo安装部署"><a href="#Hexo安装部署" class="headerlink" title="Hexo安装部署"></a>Hexo安装部署</h3><ul><li>First ，<strong>用npm安装Hexo</strong><blockquote><p><code>npm install -g hexo-cli</code></p></blockquote></li></ul><p>在Git中打开git bash：</p><p><code>hexo init myBlog</code></p><p><code>cd myBlog</code></p><p><code>npm install</code></p><p><code>hexo s</code></p><p>完成即可在浏览器中输入<a href="http://localhost:4000/">http://localhost:4000</a> 回车预览效果</p><ul><li>Second ，<strong>主题下载</strong></li></ul><p>进入<a href="https://hexo.io/themes/">https://hexo.io/themes/</a> 按照官方指示下载butterfly主题并配置依赖</p><p> 修改根目录**_config.yml*<em>的theme为</em>butterfly*</p><p>修改好后在git bash中执行<code>hexo g</code>和<code>hexo s</code> ,浏览器回车预览效果</p><ul><li>Third ，<strong>主题配置</strong></li></ul><p>点击”D:\Git\myBlog\themes\butterfly_config.yml”修改相关配置</p><p>修改完成后 <code>hexo g</code>&amp;<code>hexo s</code>&amp;<code>hexo d</code></p><ul><li>Last ，<strong>将博客部署到GitHub上</strong></li></ul><p>在GitHub中创建<em>ysong<a href="http://www.github.io/">www.github.io</a></em>的仓库</p><p>配置SSH key:</p><p><code>git config --global user.name&quot;ysongwww&quot;</code></p><p><code>git config --global user.email 2264824769@qq.com</code></p><p><code>ssh-keygen -t rsa -C &#39;2264824769@qq.com&#39;</code></p><p><code>cat ~/.ssh/id_rsa.pub</code> –查看自己的ssh</p><p><em>确认并添加主机到本机SSH可信列表</em></p><p><code>ssh -T git@github.com</code> –connection refused</p><blockquote><p>改用GitHub的443端口：<br>打开Git中的git bash 执行<code>cd ~</code>进入用户主目录</p></blockquote><p>执行<code>mkdir -p .ssh</code> &amp; <code>cd .ssh</code> &amp; <code>touch config</code> &amp; <code>code config</code></p><p>点开config文件，输入：</p><p> Host github.com</p><p> Hostname ssh.github.com</p><p> Port 443</p><p>保存文件后再次执行<br><code>ssh -T git@github.com</code></p><p>在GitHub上添加刚刚生成的SSH key</p><blockquote><p>右上角头像–settings–SSH and GPG keys–建立新的SSH key–填入刚刚生成的SSH key–确认建立</p></blockquote><p><em>修改配置和安装部署插件</em><br>打开根目录下的_config.yml ，拉到文件末尾，填上以下配置：</p><p>deploy:</p><p>  type: git</p><p>  repo: <a href="https://github.com/ysongwww/ysongwww.github.io.git">https://github.com/ysongwww/ysongwww.github.io.git</a></p><p>  branch: main</p><p>打开git bash：<code>npm install hexo-deployer-git --save</code></p><p>最后，<code>hexo c</code></p><p><code>hexo g</code></p><p><code>hexo d</code></p><ul><li>Finally ，在浏览器输入 <a href="https://ysongwww.github.io即可/">https://ysongwww.github.io即可</a></li></ul><h3 id="写文章并上传"><a href="#写文章并上传" class="headerlink" title="写文章并上传"></a>写文章并上传</h3><ul><li>在git bash中输入 <code>hexo new &quot;标题&quot;</code>，在myBlog-source-post中找到创建的标题，在Vscode中写内容</li><li><code>hexo g</code>&amp;<code>hexo d</code>即可</li></ul><h4 id="注意：Vscode记得保存，单词输入要正确"><a href="#注意：Vscode记得保存，单词输入要正确" class="headerlink" title="注意：Vscode记得保存，单词输入要正确"></a>注意：Vscode记得保存，单词输入要正确</h4><p>最后的最后，谢谢学长学姐们的帮助与解惑，非常感谢</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hello World</title>
+      <link href="/2025/10/11/hello-world/"/>
+      <url>/2025/10/11/hello-world/</url>
+      
+        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+  
+  
+    
+    
+    <entry>
+      <title>友链</title>
+      <link href="/link/index.html"/>
+      <url>/link/index.html</url>
+      
+        <content type="html"><![CDATA[<p>-好友[cyanrain]:<a href="https://cyanrainddd.github.io/">https://cyanrainddd.github.io/</a></p>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>电影</title>
+      <link href="/Movie/index.html"/>
+      <url>/Movie/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>关于</title>
+      <link href="/about/index.html"/>
+      <url>/about/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>音乐</title>
+      <link href="/Music/index.html"/>
+      <url>/Music/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+  
+</search>
