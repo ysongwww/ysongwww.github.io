@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>web方向学习</title>
+      <link href="/2025/11/17/web%E6%96%B9%E5%90%91%E5%AD%A6%E4%B9%A0/"/>
+      <url>/2025/11/17/web%E6%96%B9%E5%90%91%E5%AD%A6%E4%B9%A0/</url>
+      
+        <content type="html"><![CDATA[<h3 id="请求方式"><a href="#请求方式" class="headerlink" title="请求方式"></a>请求方式</h3><ol><li>GET：获取资源（参数在URL）</li><li>POST： 提交数据（参数在请求体中）</li><li>PUT： 更新资源</li><li>DELETE： 删除资源</li></ol><h3 id="状态码含义"><a href="#状态码含义" class="headerlink" title="状态码含义"></a>状态码含义</h3><ul><li>200：请求成功</li><li>301&#x2F;302：资源重定向</li><li>404：请求的资源不存在</li><li>500：服务器内部错误</li></ul><h4 id="应用可参考-Week1-from-http"><a href="#应用可参考-Week1-from-http" class="headerlink" title="应用可参考[Week1] from_http"></a>应用可参考[Week1] from_http</h4>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> study </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>?CTF</title>
       <link href="/2025/11/17/CTF/"/>
       <url>/2025/11/17/CTF/</url>
